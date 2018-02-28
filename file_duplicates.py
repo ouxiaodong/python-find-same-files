@@ -13,15 +13,16 @@ def printUsage():
     message = u'''
 *********************************
 
-½Å±¾¹¦ÄÜ£ºÕÒ³öÖ¸¶¨Â·¾¶ÏÂÊÇ·ñ´æÔÚÄÚÈİÍêÈ«Ò»ÖÂµÄÎÄ¼ş
-Ê¹ÓÃ·½Ê½£ºpython tgaduplicates.py ¼ìË÷Â·¾¶
-²ú³ö½á¹û£ºµ±Ç°¹¤×÷Â·¾¶ÏÂduplicates.txt
+è„šæœ¬åŠŸèƒ½ï¼šæ‰¾å‡ºæŒ‡å®šè·¯å¾„ä¸‹æ˜¯å¦å­˜åœ¨å†…å®¹å®Œå…¨ä¸€è‡´çš„æ–‡ä»¶
+ä½¿ç”¨æ–¹å¼ï¼špython tgaduplicates.py æ£€ç´¢è·¯å¾„
+äº§å‡ºç»“æœï¼šå½“å‰å·¥ä½œè·¯å¾„ä¸‹duplicates.txt
 
 *********************************
     '''
     print message
 
 
+# check file content for md5
 def md5Checksum(filePath):
 	with open(filePath, 'rb') as f_read:
 		m = hashlib.md5()
@@ -45,7 +46,7 @@ def duplicates(paths, hash=hashlib.sha1):
 
 	with open("duplicates.txt", "w") as res:
 		f_write = res
-		f_write.write("ÎÄ¼şÖØ¸´Êı" + TAB + "ÎÄ¼ş´óĞ¡" + TAB + "ÎÄ¼şÃû" + CHANCE_LINE)
+		f_write.write("æ–‡ä»¶é‡å¤æ•°" + TAB + "æ–‡ä»¶å¤§å°" + TAB + "æ–‡ä»¶å" + CHANCE_LINE)
 		for file_name in duplicate_files:
 			f_write.write(str(len(file_name)) + TAB)
 			f_write.write(str(float(os.path.getsize(file_name[0]) / 1024)) + 'KB' + TAB)
@@ -55,7 +56,7 @@ def duplicates(paths, hash=hashlib.sha1):
 
 if __name__ == '__main__':
 	if len(sys.argv) < 2:
-		print u'²ÎÊıÓĞÎó£¡£¡£¡'
+		print u'å‚æ•°æœ‰è¯¯ï¼ï¼ï¼'
 		printUsage()
 		sys.exit(0)
 
